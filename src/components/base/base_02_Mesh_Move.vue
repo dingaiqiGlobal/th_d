@@ -52,18 +52,61 @@ export default {
       cube.rotation.set(-Math.PI / 4, 0, 0, "XZY"); //旋转
       scene.add(cube);
 
-      // 动画渲染函数
-      function animate(time) {
-        let t = (time / 1000) % 5;//1m/s的匀速运动
-        cube.position.x = t * 1;
-        cube.rotation.x += 0.01;
-        if (cube.position.x > 5) {
-          cube.position.x = 0;
+      /**
+       * 方式1
+       * 基础
+       */
+      //   function animate() {
+      //     cube.position.x += 0.01;
+      //     cube.rotation.x += 0.01;
+      //     if (cube.position.x > 5) {
+      //       cube.position.x = 0;
+      //     }
+      //     renderer.render(scene, camera);
+      //     requestAnimationFrame(animate);
+      //   }
+      //   animate();
+
+      /**
+       * 方式2
+       * 解决确保不同帧率的画面运行速度一致
+       */
+      //   function animate(time) {
+      //     let t = (time / 1000) % 5; //1m/s的匀速运动
+      //     cube.position.x = t * 1;
+      //     cube.rotation.x += 0.01;
+      //     if (cube.position.x > 5) {
+      //       cube.position.x = 0;
+      //     }
+      //     renderer.render(scene, camera);
+      //     requestAnimationFrame(animate);
+      //   }
+      //   animate();
+      /**
+       * 方式3
+       * Clock跟踪时间处理动画
+       */
+        const clock = new THREE.Clock(); //用clock对象用于跟踪时间
+        function animate() {
+          let time = clock.getElapsedTime();
+          // console.log("时钟运行总时长：", time);
+          // let deltaTime = clock.getDelta();
+          // console.log("2帧之间的时间间隔：", deltaTime);
+          let t=time % 5;
+          cube.position.x = t * 1;
+          cube.rotation.x += 0.01;
+          if (cube.position.x > 5) {
+            cube.position.x = 0;
+          }
+          renderer.render(scene, camera);
+          requestAnimationFrame(animate);
         }
-        renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-      }
-      animate();
+        animate();
+
+      /**
+       * 方式4
+       * GSAP模块-未写
+       */
 
       // 监听窗口变化
       window.addEventListener("resize", () => {
