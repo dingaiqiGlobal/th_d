@@ -53,8 +53,9 @@ export default {
       scene.add(cube);
 
       // 动画渲染函数
-      function animate() {
-        cube.position.x += 0.01;
+      function animate(time) {
+        let t = (time / 1000) % 5;//1m/s的匀速运动
+        cube.position.x = t * 1;
         cube.rotation.x += 0.01;
         if (cube.position.x > 5) {
           cube.position.x = 0;
