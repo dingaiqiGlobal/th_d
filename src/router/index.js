@@ -1,23 +1,29 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'threeJS_base',
-    component: () => import("../components/threeJS_base.vue")
+    path: "/",
+    name: "threeJS_base",
+    component: () => import("../components/threeJS_base.vue"),
   },
   {
-    path: '/base_01_Scene_Camera_Renderer',
-    name: 'base_01_Scene_Camera_Renderer',
-    component: () => import("../components/base/base_01_Scene_Camera_Renderer.vue")
-  }
-]
+    path: "/base_01_Scene_Camera_Renderer",
+    name: "base_01_Scene_Camera_Renderer",
+    component: () =>
+      import("../components/base/base_01_Scene_Camera_Renderer.vue"),
+  },
+  {
+    path: "/base_02_Mesh_Move",
+    name: "base_02_Mesh_Move",
+    component: () => import("../components/base/base_02_Mesh_Move.vue"),
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

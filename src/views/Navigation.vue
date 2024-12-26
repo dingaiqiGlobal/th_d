@@ -29,6 +29,12 @@ export default {
           text: "Scene_Camera_Renderer",
           path: "/base_01_Scene_Camera_Renderer",
         },
+                {
+          id: 1,
+          img: "/images/nav/base/base_02_Mesh_Move.jpg",
+          text: "Mesh_Move",
+          path: "/base_02_Mesh_Move",
+        },
       ],
     };
   },

@@ -1,4 +1,4 @@
-                                                                                                                                                                                                         <template>
+<template>
   <div class="box" ref="box">
     <div class="control"></div>
   </div>
@@ -7,7 +7,6 @@
 <script>
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js"; //导入轨道控制器
-import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
 
 export default {
   name: "Base",
@@ -22,7 +21,7 @@ export default {
       let box = this.$refs.box;
       // 创建场景
       const scene = new THREE.Scene();
-      // 创建相机
+      // 创建透视相机
       const camera = new THREE.PerspectiveCamera(
         45,
         box.clientWidth / box.clientHeight,
@@ -43,15 +42,23 @@ export default {
 
       // 添加轨道控制器
       const controls = new OrbitControls(camera, renderer.domElement);
-      // controls.enableDamping = true;
-      // controls.dampingFactor = 0.05;
-      // controls.autoRotate = true;
+
+      //创建几何体并添加到场景中
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshBasicMaterial({ color: "#42adff" });
+      const cube = new THREE.Mesh(geometry, material);
+      //cube.position.set(3, 0, 0);
+      cube.position.x = 3;
+      scene.add(cube);
 
       // 动画渲染函数
       function animate() {
-        controls.update();
-        requestAnimationFrame(animate);
+        cube.position.x += 0.01;
+        if (cube.position.x > 5) {
+          cube.position.x = 0;
+        }
         renderer.render(scene, camera);
+        requestAnimationFrame(animate);
       }
       animate();
 
