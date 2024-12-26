@@ -87,12 +87,10 @@ export default {
 
       // 监听窗口变化
       window.addEventListener("resize", () => {
-        // 重置渲染器宽高比
-        renderer.setSize(box.clientWidth, box.clientHeight);
-        // 重置相机宽高比
-        camera.aspect = box.clientWidth / box.clientHeight;
-        // 更新相机投影矩阵
-        camera.updateProjectionMatrix();
+        renderer.setSize(box.clientWidth, box.clientHeight);//更新渲染器
+        renderer.setPixelRatio(window.devicePixelRatio);//设置渲染器的像素比
+        camera.aspect = box.clientWidth / box.clientHeight;//更新摄像头
+        camera.updateProjectionMatrix();//更新摄像机的投影矩阵
       });
 
       let eventObj = {
