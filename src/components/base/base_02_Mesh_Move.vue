@@ -47,13 +47,15 @@ export default {
       const geometry = new THREE.BoxGeometry(1, 1, 1);
       const material = new THREE.MeshBasicMaterial({ color: "#42adff" });
       const cube = new THREE.Mesh(geometry, material);
-      //cube.position.set(3, 0, 0);
-      cube.position.x = 3;
+      cube.position.set(3, 0, 0); //位置
+      cube.scale.set(1, 1, 1); //缩放
+      cube.rotation.set(-Math.PI / 4, 0, 0, "XZY"); //旋转
       scene.add(cube);
 
       // 动画渲染函数
       function animate() {
         cube.position.x += 0.01;
+        cube.rotation.x += 0.01;
         if (cube.position.x > 5) {
           cube.position.x = 0;
         }
