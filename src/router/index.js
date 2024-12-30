@@ -20,6 +20,11 @@ const routes = [
     name: "base_02_Mesh_Move",
     component: () => import("../components/base/base_02_Mesh_Move.vue"),
   },
+  {
+    path: "/base_03_Relative",
+    name: "base_03_Relative",
+    component: () => import("../components/base/base_03_Relative.vue"),
+  },
 ];
 
 const router = new VueRouter({
