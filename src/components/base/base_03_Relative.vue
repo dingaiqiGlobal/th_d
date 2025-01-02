@@ -115,7 +115,6 @@ export default {
       const gui = new GUI();
       function makeAxisGrid(node, label, units) {
         const helper = new AxisGridHelper(node, units);
-        console.log(helper,"11111")
         gui.add(helper, "visible").name(label);
       }
 

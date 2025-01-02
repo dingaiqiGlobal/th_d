@@ -41,6 +41,12 @@ export default {
           text: "组概念",
           path: "/base_03_Relative",
         },
+        {
+          id: 1,
+          img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
+          text: "贴图-六面",
+          path: "/texture_01_SixSides",
+        },
       ],
     };
   },

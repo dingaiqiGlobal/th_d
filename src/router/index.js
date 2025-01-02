@@ -25,6 +25,12 @@ const routes = [
     name: "base_03_Relative",
     component: () => import("../components/base/base_03_Relative.vue"),
   },
+  {
+    path: "/texture_01_SixSides",
+    name: "texture_01_SixSides",
+    component: () =>
+      import("../components/textureCollection/texture_01_SixSides.vue"),
+  },
 ];
 
 const router = new VueRouter({
