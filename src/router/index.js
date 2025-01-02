@@ -31,6 +31,14 @@ const routes = [
     component: () =>
       import("../components/textureCollection/texture_01_SixSides.vue"),
   },
+  {
+    path: "/texture_02_repeat_offter_rotation",
+    name: "texture_02_repeat_offter_rotation",
+    component: () =>
+      import(
+        "../components/textureCollection/texture_02_repeat_offter_rotation.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({

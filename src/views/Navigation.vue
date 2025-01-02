@@ -47,6 +47,12 @@ export default {
           text: "贴图-六面",
           path: "/texture_01_SixSides",
         },
+                {
+          id: 1,
+          img: "/images/nav/textureCollection/texture_02_repeat_offter_rotation.jpg",
+          text: "贴图-重复偏移缩放",
+          path: "/texture_02_repeat_offter_rotation",
+        },
       ],
     };
   },
