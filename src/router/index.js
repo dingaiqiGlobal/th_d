@@ -39,6 +39,11 @@ const routes = [
         "../components/textureCollection/texture_02_repeat_offter_rotation.vue"
       ),
   },
+  {
+    path: "/light_01_base",
+    name: "light_01_base",
+    component: () => import("../components/lightCollection/light_01_base.vue"),
+  },
 ];
 
 const router = new VueRouter({

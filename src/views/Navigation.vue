@@ -47,11 +47,17 @@ export default {
           text: "贴图-六面",
           path: "/texture_01_SixSides",
         },
-                {
+        {
           id: 1,
           img: "/images/nav/textureCollection/texture_02_repeat_offter_rotation.jpg",
           text: "贴图-重复偏移缩放",
           path: "/texture_02_repeat_offter_rotation",
+        },
+        {
+          id: 1,
+          img: "/images/nav/lightCollection/light_01_base.jpg",
+          text: "灯光-基础",
+          path: "/light_01_base",
         },
       ],
     };
