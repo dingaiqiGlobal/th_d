@@ -40,6 +40,12 @@ const routes = [
       ),
   },
   {
+    path: "/material_01_Klein",
+    name: "material_01_Klein",
+    component: () =>
+      import("../components/materialCollection/material_01_Klein.vue"),
+  },
+  {
     path: "/light_01_base",
     name: "light_01_base",
     component: () => import("../components/lightCollection/light_01_base.vue"),
