@@ -1,7 +1,6 @@
 <template>
   <div class="box" ref="box">
-    <div class="control">
-    </div>
+    <div class="control"></div>
   </div>
 </template>
 
@@ -17,6 +16,7 @@ export default {
       camera: null,
       renderer: null,
       controls: null,
+      lightGroup: null,
     };
   },
   mounted() {
@@ -32,6 +32,9 @@ export default {
       //坐标辅助
       const axesHelper = this.createAxesHelper();
       this.scene.add(axesHelper);
+      //光源
+      this.lightGroup = this.createLight();
+      this.scene.add(this.lightGroup);
       //渲染器
       this.renderer = this.createRenderer();
       //控制器
@@ -59,6 +62,17 @@ export default {
     createAxesHelper() {
       const axesHelper = new THREE.AxesHelper(5);
       return axesHelper;
+    },
+    createLight() {
+      const lightGroup = new THREE.Group();
+      let ambientLight = new THREE.AmbientLight(0x999999);
+      lightGroup.add(ambientLight);
+
+      let pointLight = new THREE.PointLight(0xffffff, 1, 0);
+      pointLight.position.set(-10, 6, 10);
+
+      lightGroup.add(pointLight);
+      return lightGroup;
     },
     createRenderer() {
       const box = this.$refs.box;
