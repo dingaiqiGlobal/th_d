@@ -53,7 +53,13 @@ export default {
           text: "贴图-重复偏移缩放",
           path: "/texture_02_repeat_offter_rotation",
         },
-                {
+        {
+          id: 1,
+          img: "/images/nav/textureCollection/texture_03_panorama.jpg",
+          text: "贴图-全景图",
+          path: "/texture_03_panorama",
+        },
+        {
           id: 1,
           img: "/images/nav/materialCollection/material_01_Klein.jpg",
           text: "材质-克莱因瓶",

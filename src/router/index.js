@@ -40,6 +40,12 @@ const routes = [
       ),
   },
   {
+    path: "/texture_03_panorama",
+    name: "texture_03_panorama",
+    component: () =>
+      import("../components/textureCollection/texture_03_panorama.vue"),
+  },
+  {
     path: "/material_01_Klein",
     name: "material_01_Klein",
     component: () =>
