@@ -1,13 +1,13 @@
 <template>
   <div class="box" ref="box">
-    <div class="control"></div>
+    <div class="control">
+    </div>
   </div>
 </template>
 
 <script>
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
 
 export default {
   name: "Base",
@@ -16,25 +16,66 @@ export default {
       scene: null,
       camera: null,
       renderer: null,
-      light: null,
       controls: null,
     };
   },
   mounted() {
-    this.initScene();
+    this.init();
   },
   methods: {
-    initScene() {
-      let box = this.$refs.box;
-      this.scene = new THREE.Scene();
-      this.renderer = new THREE.WebGLRenderer();
-      this.renderer.setSize(box.clientWidth, box.clientHeight);
-      box.appendChild(this.renderer.domElement);
-      this.addCamera();
-      this.addControls();
-      this.addAxesHelper();
-      this.animate();
-      // 监听窗口变化
+    init() {
+      //场景
+      this.scene = this.createScene();
+      //摄像机
+      this.camera = this.createCamera();
+      this.scene.add(this.camera);
+      //坐标辅助
+      const axesHelper = this.createAxesHelper();
+      this.scene.add(axesHelper);
+      //渲染器
+      this.renderer = this.createRenderer();
+      //控制器
+      this.controls = this.createControls();
+      //窗口变化
+      this.changeWindow();
+      //循环渲染
+      this.render();
+    },
+    createScene() {
+      const scene = new THREE.Scene();
+      return scene;
+    },
+    createCamera() {
+      let camera = new THREE.PerspectiveCamera(
+        45,
+        this.$refs.box.clientWidth / this.$refs.box.clientHeight,
+        0.1,
+        1000
+      );
+      camera.position.set(2, 2, 5);
+      camera.lookAt(0, 0, 0);
+      return camera;
+    },
+    createAxesHelper() {
+      const axesHelper = new THREE.AxesHelper(5);
+      return axesHelper;
+    },
+    createRenderer() {
+      const box = this.$refs.box;
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(box.clientWidth, box.clientHeight);
+      box.appendChild(renderer.domElement);
+      return renderer;
+    },
+    createControls() {
+      const controls = new OrbitControls(this.camera, this.renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.autoRotate = true;
+      return controls;
+    },
+    changeWindow() {
+      const box = this.$refs.box;
       window.addEventListener("resize", () => {
         this.renderer.setSize(box.clientWidth, box.clientHeight);
         this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -42,30 +83,16 @@ export default {
         this.camera.updateProjectionMatrix();
       });
     },
-    addCamera() {
-      this.camera = new THREE.PerspectiveCamera(
-        45,
-        this.$refs.box.clientWidth / this.$refs.box.clientHeight,
-        0.1,
-        1000
-      );
-      this.camera.position.set(2, 2, 5);
-      this.camera.lookAt(0, 0, 0);
-    },
-    addAxesHelper() {
-      const axesHelper = new THREE.AxesHelper(5);
-      this.scene.add(axesHelper);
-    },
-    addControls() {
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-      this.controls.enableDamping = true;
-      this.controls.dampingFactor = 0.05;
-      this.controls.autoRotate = true;
-    },
-    animate() {
+    render() {
       this.controls.update();
-      requestAnimationFrame(this.animate);
+      requestAnimationFrame(this.render);
       this.renderer.render(this.scene, this.camera);
+    },
+    handleAddition() {
+      console.log("++++");
+    },
+    handleSubtraction() {
+      console.log("----");
     },
   },
 };
