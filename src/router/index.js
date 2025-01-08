@@ -56,6 +56,12 @@ const routes = [
     name: "light_01_base",
     component: () => import("../components/lightCollection/light_01_base.vue"),
   },
+  {
+    path: "/shader_01_ocean",
+    name: "shader_01_ocean",
+    component: () =>
+      import("../components/shaderCollection/shader_01_ocean.vue"),
+  },
 ];
 
 const router = new VueRouter({

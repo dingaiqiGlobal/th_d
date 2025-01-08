@@ -71,6 +71,12 @@ export default {
           text: "灯光-基础",
           path: "/light_01_base",
         },
+                {
+          id: 1,
+          img: "/images/nav/shaderCollection/shader_01_ocean.jpg",
+          text: "shader-海洋",
+          path: "/shader_01_ocean",
+        },
       ],
     };
   },
