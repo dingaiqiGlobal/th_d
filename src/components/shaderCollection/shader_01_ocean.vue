@@ -8,6 +8,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+
+
 export default {
   name: "Base",
   data() {
@@ -61,14 +63,14 @@ export default {
         iMouse: { value: new THREE.Vector2(0.0, 0.0) },
       };
 
-      const vertexShader = `
+      const vertex = `
 void main()
 {
     vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
     gl_Position = projectionMatrix * mvPosition;
 }
       `;
-      const fragmentShader = `
+      const fragment = `
 // 时间
 uniform float iTime;
 // 分辨率
@@ -266,8 +268,8 @@ void main() {
 
       let material = new THREE.ShaderMaterial({
         uniforms: this.uniforms,
-        vertexShader: vertexShader,
-        fragmentShader: fragmentShader,
+        vertexShader: vertex,
+        fragmentShader: fragment,
       });
 
       let geom = new THREE.PlaneGeometry(width, height);
