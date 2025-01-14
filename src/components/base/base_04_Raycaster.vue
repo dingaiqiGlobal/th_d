@@ -35,8 +35,13 @@ export default {
       //光源
       this.lightGroup = this.createLight();
       this.scene.add(this.lightGroup);
+      //几何体
+      let geoGroup = this.createGeom();
+      this.scene.add(geoGroup);
       //渲染器
       this.renderer = this.createRenderer();
+      //射线事件
+      this.RayEvent();
       //控制器
       this.controls = this.createControls();
       //窗口变化
@@ -55,7 +60,7 @@ export default {
         0.1,
         1000
       );
-      camera.position.set(25, 25, 25);
+      camera.position.set(50, 15, 0);
       camera.lookAt(0, 0, 0);
       return camera;
     },
@@ -69,10 +74,40 @@ export default {
       lightGroup.add(ambientLight);
 
       let pointLight = new THREE.PointLight(0xffffff, 1, 0);
-      pointLight.position.set(-10, 6, 10);
+      pointLight.position.set(20, 20, 20);
 
       lightGroup.add(pointLight);
       return lightGroup;
+    },
+    createGeom() {
+      const group = new THREE.Group();
+      let groundMaterial = new THREE.MeshPhongMaterial({
+        shininess: 80,
+        color: 0xffffff,
+        specular: 0xffffff,
+      });
+      let planeGeometry = new THREE.PlaneGeometry(100, 100);
+      let ground = new THREE.Mesh(planeGeometry, groundMaterial);
+      ground.position.set(0, -5, 0);
+      ground.rotation.x = -Math.PI / 2;
+      ground.scale.set(1000, 1000, 1000);
+      group.add(ground);
+
+      const sphereGeometry1 = new THREE.SphereGeometry(15, 32, 16);
+      const sphereMaterial1 = new THREE.MeshBasicMaterial({ color: "#ff0000" });
+      const sphere1 = new THREE.Mesh(sphereGeometry1, sphereMaterial1);
+      sphere1.position.set(0, 0, 0);
+      sphere1.scale.set(0.1, 0.1, 0.1);
+      group.add(sphere1);
+      const sphere2 = sphere1.clone();
+      sphere2.position.set(10, 0, 0);
+      sphere2.scale.set(0.1, 0.1, 0.1);
+      group.add(sphere2);
+      const sphere3 = sphere1.clone();
+      sphere3.position.set(20, 0, 0);
+      sphere3.scale.set(0.1, 0.1, 0.1);
+      group.add(sphere3);
+      return group;
     },
     createRenderer() {
       const box = this.$refs.box;
@@ -83,10 +118,25 @@ export default {
     },
     createControls() {
       const controls = new OrbitControls(this.camera, this.renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.05;
-      controls.autoRotate = true;
       return controls;
+    },
+    RayEvent() {
+      const box = this.$refs.box;
+      const height = box.clientHeight;
+      const width = box.clientWidth;
+      this.renderer.domElement.addEventListener("click", (event) => {
+        const px = event.offsetX;
+        const py = event.offsetY;
+        const x = (px / width) * 2 - 1;
+        const y = -(py / height) * 2 + 1;
+        const raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(new THREE.Vector2(x, y), this.camera);
+        const intersects = raycaster.intersectObjects(this.scene.children);
+        //选中一个组的问题？？
+        if (intersects.length > 0) {
+          intersects[0].object.material.color.set("#62c60a");
+        }
+      });
     },
     changeWindow() {
       const box = this.$refs.box;
@@ -101,7 +151,7 @@ export default {
       this.controls.update();
       requestAnimationFrame(this.render);
       this.renderer.render(this.scene, this.camera);
-    }
+    },
   },
 };
 </script>

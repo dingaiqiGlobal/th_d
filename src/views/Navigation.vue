@@ -41,6 +41,12 @@ export default {
           text: "组概念",
           path: "/base_03_Relative",
         },
+                {
+          id: 1,
+          img: "/images/nav/base/base_04_Raycaster.jpg",
+          text: "raycaster拾取模型",
+          path: "/base_04_Raycaster",
+        },
         {
           id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",

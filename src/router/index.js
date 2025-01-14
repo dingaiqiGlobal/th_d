@@ -26,6 +26,11 @@ const routes = [
     component: () => import("../components/base/base_03_Relative.vue"),
   },
   {
+    path: "/base_04_Raycaster",
+    name: "base_04_Raycaster",
+    component: () => import("../components/base/base_04_Raycaster.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>
