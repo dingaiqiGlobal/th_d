@@ -7,6 +7,7 @@
 <script>
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import Stats from "three/addons/libs/stats.module.js";
 
 export default {
   name: "Base",
@@ -17,6 +18,7 @@ export default {
       renderer: null,
       controls: null,
       lightGroup: null,
+      stats:null,
     };
   },
   mounted() {
@@ -39,6 +41,8 @@ export default {
       this.renderer = this.createRenderer();
       //控制器
       this.controls = this.createControls();
+      //帧率
+      this.createStats()
       //窗口变化
       this.changeWindow();
       //循环渲染
@@ -88,6 +92,10 @@ export default {
       controls.autoRotate = true;
       return controls;
     },
+    createStats() {
+      this.stats = new Stats();
+      document.body.appendChild(this.stats.domElement);
+    },
     changeWindow() {
       const box = this.$refs.box;
       window.addEventListener("resize", () => {
@@ -97,11 +105,13 @@ export default {
         this.camera.updateProjectionMatrix();
       });
     },
+
     render() {
       this.controls.update();
+      this.stats.update();
       requestAnimationFrame(this.render);
       this.renderer.render(this.scene, this.camera);
-    }
+    },
   },
 };
 </script>
