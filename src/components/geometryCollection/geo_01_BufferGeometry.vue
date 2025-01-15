@@ -19,6 +19,7 @@ export default {
       controls: null,
       lightGroup: null,
       mesh: null,
+      point: null,
       stats: null,
     };
   },
@@ -39,6 +40,8 @@ export default {
       this.lightGroup = this.createLight();
       this.scene.add(this.lightGroup);
       //几何
+      this.point = this.createPoint();
+      this.scene.add(this.point);
       this.mesh = this.createMesh();
       this.scene.add(this.mesh);
       //渲染器
@@ -81,6 +84,19 @@ export default {
 
       lightGroup.add(pointLight);
       return lightGroup;
+    },
+    createPoint() {
+      const geometry = new THREE.BufferGeometry();
+      const vertices = new Float32Array([
+        -2.0, -2.0, 2.0, 2.0, -2.0, 2.0, 2.0, 2.0, 2.0,
+      ]);
+      geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+      const material = new THREE.PointsMaterial({
+        color: 0xffff00,
+        size: 1.0,
+      });
+      const point = new THREE.Points(geometry, material);
+      return point;
     },
     createMesh() {
       //顶点 是有顺序的，逆时针为正面
