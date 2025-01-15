@@ -81,6 +81,7 @@ export default {
     createRenderer() {
       const box = this.$refs.box;
       const renderer = new THREE.WebGLRenderer();
+      renderer.antialias = true;//抗锯齿
       renderer.setSize(box.clientWidth, box.clientHeight);
       box.appendChild(renderer.domElement);
       return renderer;
