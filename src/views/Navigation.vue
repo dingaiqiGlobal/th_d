@@ -41,11 +41,17 @@ export default {
           text: "组概念",
           path: "/base_03_Relative",
         },
-                {
+        {
           id: 1,
           img: "/images/nav/base/base_04_Raycaster.jpg",
           text: "raycaster拾取模型",
           path: "/base_04_Raycaster",
+        },
+        {
+          id: 1,
+          img: "/images/nav/geometryCollection/geo_01_BufferGeometry.jpg",
+          text: "geo_BufferGeometry",
+          path: "/geo_01_BufferGeometry",
         },
         {
           id: 1,
@@ -77,7 +83,7 @@ export default {
           text: "灯光-基础",
           path: "/light_01_base",
         },
-                {
+        {
           id: 1,
           img: "/images/nav/shaderCollection/shader_01_ocean.jpg",
           text: "shader-海洋",

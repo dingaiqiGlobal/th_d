@@ -31,6 +31,12 @@ const routes = [
     component: () => import("../components/base/base_04_Raycaster.vue"),
   },
   {
+    path: "/geo_01_BufferGeometry",
+    name: "geo_01_BufferGeometry",
+    component: () =>
+      import("../components/geometryCollection/geo_01_BufferGeometry.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>
