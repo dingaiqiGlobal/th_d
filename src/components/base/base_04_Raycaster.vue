@@ -134,6 +134,13 @@ export default {
         const intersects = raycaster.intersectObjects(this.scene.children);
         //选中一个组的问题？？
         if (intersects.length > 0) {
+          //递归遍历方法.traverse()
+          // intersects[0].object.traverse((obj) => {
+          //   console.log(obj)
+          //   if (obj.isMesh) {
+          //     obj.material.color.set(0xffff00);
+          //   }
+          // });
           intersects[0].object.material.color.set("#62c60a");
         }
       });
