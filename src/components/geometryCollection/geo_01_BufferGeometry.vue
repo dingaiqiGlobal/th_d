@@ -18,8 +18,6 @@ export default {
       renderer: null,
       controls: null,
       lightGroup: null,
-      mesh: null,
-      point: null,
       stats: null,
     };
   },
@@ -40,10 +38,12 @@ export default {
       this.lightGroup = this.createLight();
       this.scene.add(this.lightGroup);
       //几何
-      this.point = this.createPoint();
-      this.scene.add(this.point);
-      this.mesh = this.createMesh();
-      this.scene.add(this.mesh);
+      const point = this.createPoint();
+      this.scene.add(point);
+      const line = this.createLine();
+      this.scene.add(line);
+      const mesh = this.createMesh();
+      this.scene.add(mesh);
       //渲染器
       this.renderer = this.createRenderer();
       //控制器
@@ -97,6 +97,18 @@ export default {
       });
       const point = new THREE.Points(geometry, material);
       return point;
+    },
+    createLine() {
+      const geometry = new THREE.BufferGeometry();
+      const vertices = new Float32Array([
+        -3.0, -3.0, 3.0, 3.0, -3.0, 3.0, 3.0, 3.0, 3.0,
+      ]);
+      geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+      const material = new THREE.LineBasicMaterial({
+        color: "#ffffff",
+      });
+      const line = new THREE.LineLoop(geometry, material);
+      return line;
     },
     createMesh() {
       //顶点 是有顺序的，逆时针为正面
