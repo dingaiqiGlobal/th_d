@@ -49,6 +49,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/base/base_05_group_traverse.jpg",
+          text: "组遍历",
+          path: "/base_05_group_traverse",
+        },
+        {
+          id: 1,
           img: "/images/nav/geometryCollection/geo_01_BufferGeometry.jpg",
           text: "geo_BufferGeometry",
           path: "/geo_01_BufferGeometry",
