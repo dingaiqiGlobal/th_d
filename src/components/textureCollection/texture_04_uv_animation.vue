@@ -18,6 +18,7 @@ export default {
       renderer: null,
       controls: null,
       lightGroup: null,
+      texture:null,
       stats: null,
     };
   },
@@ -37,11 +38,7 @@ export default {
       //光源
       this.lightGroup = this.createLight();
       this.scene.add(this.lightGroup);
-      //几何
-      const point = this.createPoint();
-      this.scene.add(point);
-      const line = this.createLine();
-      this.scene.add(line);
+      //网格体
       const mesh = this.createMesh();
       this.scene.add(mesh);
       //渲染器
@@ -85,68 +82,20 @@ export default {
       lightGroup.add(pointLight);
       return lightGroup;
     },
-    createPoint() {
-      const geometry = new THREE.BufferGeometry();
-      const vertices = new Float32Array([
-        -2.0, -2.0, 2.0, 2.0, -2.0, 2.0, 2.0, 2.0, 2.0,
-      ]);
-      geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
-      const material = new THREE.PointsMaterial({
-        color: 0xffff00,
-        size: 1.0,
-      });
-      const point = new THREE.Points(geometry, material);
-      return point;
-    },
-    createLine() {
-      //setFromPoints方法
-      const points = [];
-      points.push(new THREE.Vector3(-3.0, -3.0, 3.0));
-      points.push(new THREE.Vector3(3.0, -3.0, 3.0));
-      points.push(new THREE.Vector3(3.0, 3.0, 3.0));
-      const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      const material = new THREE.LineBasicMaterial({
-        color: "#00aeff",
-      });
-      const line = new THREE.Line(geometry, material);
-      return line;
-    },
     createMesh() {
-      //顶点 是有顺序的，逆时针为正面
-      //方式1:顶点全部书写
-      const geometry = new THREE.BufferGeometry();
-      const vertices = new Float32Array([
-        -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0,
-        1.0, 1.0, -1.0, -1.0, 1.0,
-      ]);
-      //设置顶点位置属性
-      //3个为一组，表示一个顶点的xyz坐标
-      geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+      const geometry = new THREE.PlaneGeometry(50, 10);
+      geometry.rotateX(-Math.PI / 2);
+      const loader = new THREE.TextureLoader();
+      this.texture = loader.load(require("@/assets/texture/flower-1.jpg"));
+      this.texture.wrapS = THREE.RepeatWrapping;//设置.wrapS也就是U方向，纹理映射模式(包裹模式)
+      this.texture.wrapT = THREE.RepeatWrapping;
+      this.texture.repeat.set(5, 1);
       const material = new THREE.MeshBasicMaterial({
-        color: 0xff0000,
-        wireframe: true,
-        side: THREE.DoubleSide,
+        map: this.texture,
       });
-      const mesh = new THREE.Mesh(geometry, material);
-      return mesh;
-    },
-    createMesh2() {
-      //方式2:索引方式
-      const geometry = new THREE.BufferGeometry();
-      const vertices = new Float32Array([
-        -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0,
-      ]);
-      geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
-      const indexes = new Uint16Array([0, 1, 2, 2, 3, 0]);
-      //geometry.index = new THREE.BufferAttribute(indexes, 1)
-      geometry.setIndex(new THREE.BufferAttribute(indexes, 1));
-      const material = new THREE.MeshBasicMaterial({
-        color: 0xff0000,
-        wireframe: true,
-        side: THREE.DoubleSide,
-      });
-      const mesh = new THREE.Mesh(geometry, material);
-      return mesh;
+
+      const plane = new THREE.Mesh(geometry, material);
+      return plane;
     },
     createRenderer() {
       const box = this.$refs.box;
@@ -158,9 +107,6 @@ export default {
     },
     createControls() {
       const controls = new OrbitControls(this.camera, this.renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.05;
-      controls.autoRotate = true;
       return controls;
     },
     createStats() {
@@ -178,7 +124,7 @@ export default {
     },
 
     render() {
-      //this.controls.update();
+        this.texture.offset.x +=0.01
       this.stats.update();
       requestAnimationFrame(this.render);
       this.renderer.render(this.scene, this.camera);

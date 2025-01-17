@@ -79,6 +79,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/textureCollection/texture_04_uv_animation.jpg",
+          text: "贴图-uv动画",
+          path: "/texture_04_uv_animation",
+        },
+        {
+          id: 1,
           img: "/images/nav/materialCollection/material_01_Klein.jpg",
           text: "材质-克莱因瓶",
           path: "/material_01_Klein",

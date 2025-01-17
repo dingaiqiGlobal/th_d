@@ -62,6 +62,12 @@ const routes = [
       import("../components/textureCollection/texture_03_panorama.vue"),
   },
   {
+    path: "/texture_04_uv_animation",
+    name: "texture_04_uv_animation",
+    component: () =>
+      import("../components/textureCollection/texture_04_uv_animation.vue"),
+  },
+  {
     path: "/material_01_Klein",
     name: "material_01_Klein",
     component: () =>
