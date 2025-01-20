@@ -152,9 +152,9 @@ export default {
       const { loaded, total, lengthComputable } = progressEvent;
       if (lengthComputable) {
         this.progress = (loaded / total) * 100;
-        if (this.progress == 100) {
-          this.isShow = false; //隐藏
-        }
+        // if (this.progress == 100) {
+        //   this.isShow = false; //隐藏
+        // }
         // console.log(this.progress + "% loaded");
       } else {
         console.log("已加载" + loaded + "字节");
