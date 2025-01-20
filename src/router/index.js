@@ -79,6 +79,12 @@ const routes = [
     component: () => import("../components/lightCollection/light_01_base.vue"),
   },
   {
+    path: "/model_gltfLoader",
+    name: "model_gltfLoader",
+    component: () =>
+      import("../components/modelCollection/model_gltfLoader.vue"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>

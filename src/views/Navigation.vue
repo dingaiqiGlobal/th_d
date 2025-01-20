@@ -95,6 +95,12 @@ export default {
           text: "灯光-基础",
           path: "/light_01_base",
         },
+                {
+          id: 1,
+          img: "/images/nav/modelCollection/model_gltfLoader.jpg",
+          text: "模型-gltfLoader",
+          path: "/model_gltfLoader",
+        },
         {
           id: 1,
           img: "/images/nav/shaderCollection/shader_01_ocean.jpg",
