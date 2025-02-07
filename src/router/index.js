@@ -42,6 +42,12 @@ const routes = [
       import("../components/geometryCollection/geo_01_BufferGeometry.vue"),
   },
   {
+    path: "/geo_02_Geojson",
+    name: "/geo_02_Geojson",
+    component: () =>
+      import("../components/geometryCollection/geo_02_Geojson.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>

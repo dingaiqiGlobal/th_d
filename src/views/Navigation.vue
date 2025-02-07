@@ -59,6 +59,12 @@ export default {
           text: "geo_BufferGeometry",
           path: "/geo_01_BufferGeometry",
         },
+                {
+          id: 1,
+          img: "/images/nav/geometryCollection/geo_02_Geojson.jpg",
+          text: "geo_02_Geojson",
+          path: "/geo_02_Geojson",
+        },
         {
           id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
