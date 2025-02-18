@@ -59,7 +59,7 @@ export default {
           text: "geo_BufferGeometry",
           path: "/geo_01_BufferGeometry",
         },
-                {
+        {
           id: 1,
           img: "/images/nav/geometryCollection/geo_02_Geojson.jpg",
           text: "geo_02_Geojson",
@@ -101,11 +101,17 @@ export default {
           text: "灯光-基础",
           path: "/light_01_base",
         },
-                {
+        {
           id: 1,
           img: "/images/nav/modelCollection/model_gltfLoader.jpg",
           text: "模型-gltfLoader",
           path: "/model_gltfLoader",
+        },
+        {
+          id: 1,
+          img: "/images/nav/modelCollection/model_gltfAnimation.jpg",
+          text: "模型-gltf动画",
+          path: "/model_gltfAnimation",
         },
         {
           id: 1,

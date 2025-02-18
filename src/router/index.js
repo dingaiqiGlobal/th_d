@@ -91,6 +91,12 @@ const routes = [
       import("../components/modelCollection/model_gltfLoader.vue"),
   },
   {
+    path: "/model_gltfAnimation",
+    name: "model_gltfAnimation",
+    component: () =>
+      import("../components/modelCollection/model_gltfAnimation.vue"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
