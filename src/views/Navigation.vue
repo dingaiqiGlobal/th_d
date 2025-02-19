@@ -55,6 +55,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/cameraCollection/camera_01_base.jpg",
+          text: "相机基础",
+          path: "/camera_01_base",
+        },
+        {
+          id: 1,
           img: "/images/nav/geometryCollection/geo_01_BufferGeometry.jpg",
           text: "geo_BufferGeometry",
           path: "/geo_01_BufferGeometry",

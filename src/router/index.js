@@ -36,6 +36,12 @@ const routes = [
     component: () => import("../components/base/base_05_group_traverse.vue"),
   },
   {
+    path: "/camera_01_base",
+    name: "camera_01_base",
+    component: () =>
+      import("../components/cameraCollection/camera_01_base.vue"),
+  },
+  {
     path: "/geo_01_BufferGeometry",
     name: "geo_01_BufferGeometry",
     component: () =>
