@@ -23,8 +23,9 @@
 /**
  * 阴影效果
  * 光源：开启castShadow（PointLight，SpotLight，DirectionalLight）
- * 物体mesh：开启castShadow、receiveShadow
- * 渲染器：开启shadowMap
+ * 物体mesh：开启castShadow(投射阴影)
+ * 地面或者其他mesh：开启receiveShadow(接收阴影)
+ * 渲染器：开启shadowMap(阴影贴图)
  */
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";

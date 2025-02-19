@@ -46,7 +46,7 @@ export default {
       //窗口变化
       this.changeWindow();
       //循环渲染
-      this.render();
+      this.animate();
     },
     createScene() {
       const scene = new THREE.Scene();
@@ -107,10 +107,10 @@ export default {
       });
     },
 
-    render() {
+    animate() {
       this.controls.update();
       this.stats.update();
-      requestAnimationFrame(this.render);
+      requestAnimationFrame(this.animate);
       this.renderer.render(this.scene, this.camera);
     },
   },

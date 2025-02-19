@@ -103,6 +103,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/lightCollection/light_02_model.jpg",
+          text: "灯光-模型",
+          path: "/light_02_model",
+        },
+        {
+          id: 1,
           img: "/images/nav/modelCollection/model_gltfLoader.jpg",
           text: "模型-gltfLoader",
           path: "/model_gltfLoader",

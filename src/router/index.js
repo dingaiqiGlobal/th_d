@@ -85,6 +85,11 @@ const routes = [
     component: () => import("../components/lightCollection/light_01_base.vue"),
   },
   {
+    path: "/light_02_model",
+    name: "light_02_model",
+    component: () => import("../components/lightCollection/light_02_model.vue"),
+  },
+  {
     path: "/model_gltfLoader",
     name: "model_gltfLoader",
     component: () =>
