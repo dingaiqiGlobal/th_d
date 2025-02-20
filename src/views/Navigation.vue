@@ -55,6 +55,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/sceneCollection/scene_01_fog.jpg",
+          text: "场景-雾化",
+          path: "/scene_01_fog",
+        },
+        {
+          id: 1,
           img: "/images/nav/cameraCollection/camera_01_base.jpg",
           text: "相机基础",
           path: "/camera_01_base",
