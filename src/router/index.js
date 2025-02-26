@@ -124,6 +124,12 @@ const routes = [
     component: () =>
       import("../components/shaderCollection/shader_01_ocean.vue"),
   },
+  {
+    path: "/effect_01_outlinePass",
+    name: "effect_01_outlinePass",
+    component: () =>
+      import("../components/effectCollection/effect_01_outlinePass.vue"),
+  },
 ];
 
 const router = new VueRouter({

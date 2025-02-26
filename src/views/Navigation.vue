@@ -143,6 +143,12 @@ export default {
           text: "shader-海洋",
           path: "/shader_01_ocean",
         },
+        {
+          id: 1,
+          img: "/images/nav/effectCollection/effect_01_outlinePass.jpg",
+          text: "后处理-轮廓",
+          path: "/effect_01_outlinePass",
+        },
       ],
     };
   },
