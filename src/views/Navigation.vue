@@ -127,6 +127,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/modelCollection/model_gltfLoadingManager.jpg",
+          text: "模型-gltf加载进度",
+          path: "/model_gltfLoadingManager",
+        },
+        {
+          id: 1,
           img: "/images/nav/modelCollection/model_gltfAnimation.jpg",
           text: "模型-gltf动画",
           path: "/model_gltfAnimation",

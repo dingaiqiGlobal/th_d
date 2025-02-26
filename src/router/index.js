@@ -107,6 +107,12 @@ const routes = [
       import("../components/modelCollection/model_gltfLoader.vue"),
   },
   {
+    path: "/model_gltfLoadingManager",
+    name: "model_gltfLoadingManager",
+    component: () =>
+      import("../components/modelCollection/model_gltfLoadingManager.vue"),
+  },
+  {
     path: "/model_gltfAnimation",
     name: "model_gltfAnimation",
     component: () =>
