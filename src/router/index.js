@@ -36,6 +36,11 @@ const routes = [
     component: () => import("../components/base/base_05_group_traverse.vue"),
   },
   {
+    path: "/base_06_transformControls",
+    name: "base_06_transformControls",
+    component: () => import("../components/base/base_06_transformControls.vue"),
+  },
+  {
     path: "/scene_01_fog",
     name: "scene_01_fog",
     component: () => import("../components/sceneCollection/scene_01_fog.vue"),

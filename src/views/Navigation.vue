@@ -55,6 +55,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/base/base_06_transformControls.jpg",
+          text: "转换-控制器",
+          path: "/base_06_transformControls",
+        },
+        {
+          id: 1,
           img: "/images/nav/sceneCollection/scene_01_fog.jpg",
           text: "场景-雾化",
           path: "/scene_01_fog",
@@ -62,7 +68,7 @@ export default {
         {
           id: 1,
           img: "/images/nav/cameraCollection/camera_01_base.jpg",
-          text: "相机基础",
+          text: "相机-基础",
           path: "/camera_01_base",
         },
         {
