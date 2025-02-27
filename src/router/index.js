@@ -125,6 +125,11 @@ const routes = [
       import("../components/modelCollection/model_gltfAnimation.vue"),
   },
   {
+    path: "/animate_gsap",
+    name: "animate_gsap",
+    component: () => import("../components/animateCollection/animate_gsap"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
