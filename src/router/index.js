@@ -59,6 +59,12 @@ const routes = [
       import("../components/geometryCollection/geo_02_Geojson.vue"),
   },
   {
+    path: "/geo_03_billboard",
+    name: "/geo_03_billboard",
+    component: () =>
+      import("../components/geometryCollection/geo_03_billboard.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>
