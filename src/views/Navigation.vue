@@ -145,9 +145,9 @@ export default {
         },
         {
           id: 1,
-          img: "/images/nav/animateCollection/animate_gsap.jpg",
+          img: "/images/nav/animateCollection/animate_01_gsap.jpg",
           text: "动画-gsap",
-          path: "/animate_gsap",
+          path: "/animate_01_gsap",
         },
         {
           id: 1,
