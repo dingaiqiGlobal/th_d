@@ -41,6 +41,12 @@ const routes = [
     component: () => import("../components/base/base_06_transformControls.vue"),
   },
   {
+    path: "/base_07_transformControls_Box",
+    name: "base_07_transformControls_Box",
+    component: () =>
+      import("../components/base/base_07_transformControls_Box.vue"),
+  },
+  {
     path: "/scene_01_fog",
     name: "scene_01_fog",
     component: () => import("../components/sceneCollection/scene_01_fog.vue"),

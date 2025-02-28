@@ -61,6 +61,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/base/base_07_transformControls_Box.jpg",
+          text: "转换-控制器Box",
+          path: "/base_07_transformControls_Box",
+        },
+        {
+          id: 1,
           img: "/images/nav/sceneCollection/scene_01_fog.jpg",
           text: "场景-雾化",
           path: "/scene_01_fog",
