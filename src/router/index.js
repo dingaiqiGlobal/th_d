@@ -146,6 +146,12 @@ const routes = [
     component: () => import("../components/animateCollection/animate_01_gsap"),
   },
   {
+    path: "/animate_02_gsap_mesh",
+    name: "animate_02_gsap_mesh",
+    component: () =>
+      import("../components/animateCollection/animate_02_gsap_mesh"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
