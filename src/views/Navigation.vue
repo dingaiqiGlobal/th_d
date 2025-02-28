@@ -67,6 +67,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/base/base_08_skybox.jpg",
+          text: "天空盒",
+          path: "/base_08_skybox",
+        },
+        {
+          id: 1,
           img: "/images/nav/sceneCollection/scene_01_fog.jpg",
           text: "场景-雾化",
           path: "/scene_01_fog",

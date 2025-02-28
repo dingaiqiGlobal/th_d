@@ -47,6 +47,11 @@ const routes = [
       import("../components/base/base_07_transformControls_Box.vue"),
   },
   {
+    path: "/base_08_skybox",
+    name: "base_08_skybox",
+    component: () => import("../components/base/base_08_skybox.vue"),
+  },
+  {
     path: "/scene_01_fog",
     name: "scene_01_fog",
     component: () => import("../components/sceneCollection/scene_01_fog.vue"),
