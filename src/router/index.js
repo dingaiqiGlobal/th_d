@@ -36,17 +36,6 @@ const routes = [
     component: () => import("../components/base/base_05_group_traverse.vue"),
   },
   {
-    path: "/base_06_transformControls",
-    name: "base_06_transformControls",
-    component: () => import("../components/base/base_06_transformControls.vue"),
-  },
-  {
-    path: "/base_07_transformControls_Box",
-    name: "base_07_transformControls_Box",
-    component: () =>
-      import("../components/base/base_07_transformControls_Box.vue"),
-  },
-  {
     path: "/base_08_skybox",
     name: "base_08_skybox",
     component: () => import("../components/base/base_08_skybox.vue"),
@@ -61,6 +50,28 @@ const routes = [
     name: "camera_01_base",
     component: () =>
       import("../components/cameraCollection/camera_01_base.vue"),
+  },
+  {
+    path: "/controls_01_modelView",
+    name: "controls_01_modelView",
+    component: () =>
+      import("../components/controlsCollection/controls_01_modelView.vue"),
+  },
+  {
+    path: "/controls_02_transformControls",
+    name: "controls_02_transformControls",
+    component: () =>
+      import(
+        "../components/controlsCollection/controls_02_transformControls.vue"
+      ),
+  },
+  {
+    path: "/controls_03_transformControls_Box",
+    name: "controls_03_transformControls_Box",
+    component: () =>
+      import(
+        "../components/controlsCollection/controls_03_transformControls_Box.vue"
+      ),
   },
   {
     path: "/geo_01_BufferGeometry",

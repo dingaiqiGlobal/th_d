@@ -55,18 +55,6 @@ export default {
         },
         {
           id: 1,
-          img: "/images/nav/base/base_06_transformControls.jpg",
-          text: "转换-控制器",
-          path: "/base_06_transformControls",
-        },
-        {
-          id: 1,
-          img: "/images/nav/base/base_07_transformControls_Box.jpg",
-          text: "转换-控制器Box",
-          path: "/base_07_transformControls_Box",
-        },
-        {
-          id: 1,
           img: "/images/nav/base/base_08_skybox.jpg",
           text: "天空盒",
           path: "/base_08_skybox",
@@ -82,6 +70,24 @@ export default {
           img: "/images/nav/cameraCollection/camera_01_base.jpg",
           text: "相机-基础",
           path: "/camera_01_base",
+        },
+        {
+          id: 1,
+          img: "/images/nav/controlsCollection/controls_01_modelView.jpg",
+          text: "控制-模型视图",
+          path: "/controls_01_modelView",
+        },
+        {
+          id: 1,
+          img: "/images/nav/controlsCollection/controls_02_transformControls.jpg",
+          text: "控制-转换",
+          path: "/controls_02_transformControls",
+        },
+        {
+          id: 1,
+          img: "/images/nav/controlsCollection/controls_03_transformControls_Box.jpg",
+          text: "控制-转换box",
+          path: "/controls_03_transformControls_Box",
         },
         {
           id: 1,
