@@ -115,6 +115,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/geometryCollection/geo_05_cssRender.jpg",
+          text: "geo_05_cssRender",
+          path: "/geo_05_cssRender",
+        },
+        {
+          id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
           text: "贴图-六面",
           path: "/texture_01_SixSides",

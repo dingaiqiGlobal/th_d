@@ -98,6 +98,12 @@ const routes = [
       import("../components/geometryCollection/geo_04_sprite.vue"),
   },
   {
+    path: "/geo_05_cssRender",
+    name: "/geo_05_cssRender",
+    component: () =>
+      import("../components/geometryCollection/geo_05_cssRender.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>
