@@ -81,6 +81,12 @@ const routes = [
       import("../components/geometryCollection/geo_03_billboard.vue"),
   },
   {
+    path: "/geo_04_sprite",
+    name: "/geo_04_sprite",
+    component: () =>
+      import("../components/geometryCollection/geo_04_sprite.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>

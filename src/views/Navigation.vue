@@ -103,6 +103,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/geometryCollection/geo_04_sprite.jpg",
+          text: "geo_04_sprite",
+          path: "/geo_04_sprite",
+        },
+        {
+          id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
           text: "贴图-六面",
           path: "/texture_01_SixSides",
