@@ -175,6 +175,11 @@ const routes = [
       import("../components/animateCollection/animate_02_gsap_mesh"),
   },
   {
+    path: "/animate_03_curve",
+    name: "animate_03_curve",
+    component: () => import("../components/animateCollection/animate_03_curve"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>

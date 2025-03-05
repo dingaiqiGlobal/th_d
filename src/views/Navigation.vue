@@ -193,6 +193,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/animateCollection/animate_03_curve.jpg",
+          text: "动画-曲线",
+          path: "/animate_03_curve",
+        },
+        {
+          id: 1,
           img: "/images/nav/shaderCollection/shader_01_ocean.jpg",
           text: "shader-海洋",
           path: "/shader_01_ocean",
