@@ -180,6 +180,12 @@ const routes = [
     component: () => import("../components/animateCollection/animate_03_curve"),
   },
   {
+    path: "/animate_04_camera",
+    name: "animate_04_camera",
+    component: () =>
+      import("../components/animateCollection/animate_04_camera"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>

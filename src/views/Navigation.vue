@@ -199,6 +199,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/animateCollection/animate_04_camera.jpg",
+          text: "动画-相机动画",
+          path: "/animate_04_camera",
+        },
+        {
+          id: 1,
           img: "/images/nav/shaderCollection/shader_01_ocean.jpg",
           text: "shader-海洋",
           path: "/shader_01_ocean",
