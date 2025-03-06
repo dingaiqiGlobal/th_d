@@ -36,6 +36,11 @@ const routes = [
     component: () => import("../components/base/base_05_group_traverse.vue"),
   },
   {
+    path: "/base_07_viewHelper",
+    name: "base_07_viewHelper",
+    component: () => import("../components/base/base_07_viewHelper.vue"),
+  },
+  {
     path: "/base_08_skybox",
     name: "base_08_skybox",
     component: () => import("../components/base/base_08_skybox.vue"),

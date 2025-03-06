@@ -55,6 +55,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/base/base_07_viewHelper.jpg",
+          text: "辅助工具",
+          path: "/base_07_viewHelper",
+        },
+        {
+          id: 1,
           img: "/images/nav/base/base_08_skybox.jpg",
           text: "天空盒",
           path: "/base_08_skybox",
