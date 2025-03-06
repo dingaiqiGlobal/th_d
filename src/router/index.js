@@ -186,6 +186,11 @@ const routes = [
       import("../components/animateCollection/animate_04_camera"),
   },
   {
+    path: "/animate_05_mesh",
+    name: "animate_05_mesh",
+    component: () => import("../components/animateCollection/animate_05_mesh"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
