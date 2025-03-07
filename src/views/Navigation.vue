@@ -157,6 +157,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/materialCollection/material_02_WebGLRenderTarget.jpg",
+          text: "材质-WebGLTarget",
+          path: "/material_02_WebGLRenderTarget",
+        },
+        {
+          id: 1,
           img: "/images/nav/lightCollection/light_01_base.jpg",
           text: "灯光-基础",
           path: "/light_01_base",

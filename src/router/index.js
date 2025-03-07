@@ -141,6 +141,14 @@ const routes = [
       import("../components/materialCollection/material_01_Klein.vue"),
   },
   {
+    path: "/material_02_WebGLRenderTarget",
+    name: "material_02_WebGLRenderTarget",
+    component: () =>
+      import(
+        "../components/materialCollection/material_02_WebGLRenderTarget.vue"
+      ),
+  },
+  {
     path: "/light_01_base",
     name: "light_01_base",
     component: () => import("../components/lightCollection/light_01_base.vue"),
