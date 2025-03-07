@@ -215,6 +215,12 @@ const routes = [
     component: () =>
       import("../components/postprocessCollection/post_01_outlinePass.vue"),
   },
+  {
+    path: "/post_02_glow",
+    name: "post_02_glow",
+    component: () =>
+      import("../components/postprocessCollection/post_02_glow.vue"),
+  },
 ];
 
 const router = new VueRouter({

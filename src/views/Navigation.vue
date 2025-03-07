@@ -233,6 +233,12 @@ export default {
           text: "后处理-轮廓",
           path: "/post_01_outlinePass",
         },
+        {
+          id: 1,
+          img: "/images/nav/postprocessCollection/post_02_glow.jpg",
+          text: "后处理-辉光",
+          path: "/post_02_glow",
+        },
       ],
     };
   },
