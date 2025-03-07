@@ -239,6 +239,12 @@ export default {
           text: "后处理-辉光",
           path: "/post_02_glow",
         },
+        {
+          id: 1,
+          img: "/images/nav/postprocessCollection/post_03_shader_mask.jpg",
+          text: "后处理-遮罩通道",
+          path: "/post_03_shader_mask",
+        },
       ],
     };
   },
