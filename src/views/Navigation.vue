@@ -229,9 +229,9 @@ export default {
         },
         {
           id: 1,
-          img: "/images/nav/effectCollection/effect_01_outlinePass.jpg",
+          img: "/images/nav/postprocessCollection/post_01_outlinePass.jpg",
           text: "后处理-轮廓",
-          path: "/effect_01_outlinePass",
+          path: "/post_01_outlinePass",
         },
       ],
     };

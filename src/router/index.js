@@ -210,10 +210,10 @@ const routes = [
       import("../components/shaderCollection/shader_01_ocean.vue"),
   },
   {
-    path: "/effect_01_outlinePass",
-    name: "effect_01_outlinePass",
+    path: "/post_01_outlinePass",
+    name: "post_01_outlinePass",
     component: () =>
-      import("../components/effectCollection/effect_01_outlinePass.vue"),
+      import("../components/postprocessCollection/post_01_outlinePass.vue"),
   },
 ];
 
