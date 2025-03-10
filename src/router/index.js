@@ -233,6 +233,12 @@ const routes = [
     component: () =>
       import("../components/postprocessCollection/post_04_ghost.vue"),
   },
+  {
+    path: "/post_05_UV",
+    name: "post_05_UV",
+    component: () =>
+      import("../components/postprocessCollection/post_05_UV.vue"),
+  },
 ];
 
 const router = new VueRouter({
