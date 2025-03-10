@@ -9,6 +9,15 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import Stats from "three/addons/libs/stats.module.js";
 
+import { TilesRenderer } from "3d-tiles-renderer";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+
+/**
+ * npm i 3d-tiles-renderer --save
+ * https://github.com/NASA-AMMOS/3DTilesRendererJS
+ */
+
 export default {
   name: "Base",
   data() {
@@ -18,7 +27,9 @@ export default {
       renderer: null,
       controls: null,
       lightGroup: null,
-      stats:null,
+      stats: null,
+      //3dtiles
+      tilesRenderer: null,
     };
   },
   mounted() {
@@ -33,7 +44,8 @@ export default {
       this.scene.add(this.camera);
       //坐标辅助
       const axesHelper = this.createAxesHelper();
-      this.scene.add(axesHelper);
+      const gridHelper = new THREE.GridHelper(100, 20);
+      this.scene.add(axesHelper, gridHelper);
       //光源
       this.lightGroup = this.createLight();
       this.scene.add(this.lightGroup);
@@ -42,9 +54,11 @@ export default {
       //控制器
       this.controls = this.createControls();
       //帧率
-      this.createStats()
+      this.createStats();
       //窗口变化
       this.changeWindow();
+      //3dtiles
+      this.init3Dtiles();
       //循环渲染
       this.animate();
     },
@@ -54,12 +68,12 @@ export default {
     },
     createCamera() {
       let camera = new THREE.PerspectiveCamera(
-        45,
+        75,
         this.$refs.box.clientWidth / this.$refs.box.clientHeight,
         0.1,
         1000
       );
-      camera.position.set(25, 25, 25);
+      camera.position.set(0, 30, 30);
       camera.lookAt(0, 0, 0);
       return camera;
     },
@@ -81,7 +95,7 @@ export default {
     createRenderer() {
       const box = this.$refs.box;
       const renderer = new THREE.WebGLRenderer();
-      renderer.antialias = true;//抗锯齿
+      renderer.antialias = true; //抗锯齿
       renderer.setSize(box.clientWidth, box.clientHeight);
       box.appendChild(renderer.domElement);
       return renderer;
@@ -90,7 +104,6 @@ export default {
       const controls = new OrbitControls(this.camera, this.renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.05;
-      controls.autoRotate = true;
       return controls;
     },
     createStats() {
@@ -106,11 +119,26 @@ export default {
         this.camera.updateProjectionMatrix();
       });
     },
-
+    init3Dtiles() {
+      this.tilesRenderer = new TilesRenderer(
+        "data/3dtiles/bim/tileset.json"
+      );
+      this.tilesRenderer.setCamera(this.camera);
+      this.tilesRenderer.setResolutionFromRenderer(this.camera, this.renderer);
+      this.tilesRenderer.addEventListener("load-tile-set", () => {
+        const sphere = new THREE.Sphere();
+        this.tilesRenderer.getBoundingSphere(sphere);
+        this.tilesRenderer.group.position
+          .copy(sphere.center)
+          .multiplyScalar(-1);
+      });
+      this.scene.add(this.tilesRenderer.group);
+    },
     animate() {
+      requestAnimationFrame(this.animate);
       this.controls.update();
       this.stats.update();
-      requestAnimationFrame(this.animate);
+      this.tilesRenderer.update();
       this.renderer.render(this.scene, this.camera);
     },
   },
