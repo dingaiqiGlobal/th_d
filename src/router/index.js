@@ -239,6 +239,12 @@ const routes = [
     component: () =>
       import("../components/postprocessCollection/post_05_UV.vue"),
   },
+  {
+    path: "/post_06_saturation",
+    name: "post_06_saturation",
+    component: () =>
+      import("../components/postprocessCollection/post_06_saturation.vue"),
+  },
 ];
 
 const router = new VueRouter({

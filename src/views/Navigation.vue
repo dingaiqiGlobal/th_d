@@ -256,6 +256,11 @@ export default {
           img: "/images/nav/postprocessCollection/post_05_UV.jpg",
           text: "后处理-UV图像变换",
           path: "/post_05_UV",
+        },        {
+          id: 1,
+          img: "/images/nav/postprocessCollection/post_06_saturation.jpg",
+          text: "后处理-饱和度",
+          path: "/post_06_saturation",
         },
       ],
     };
