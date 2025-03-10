@@ -109,6 +109,11 @@ const routes = [
       import("../components/geometryCollection/geo_05_cssRender.vue"),
   },
   {
+    path: "/map_01_3dtiles",
+    name: "/map_01_3dtiles",
+    component: () => import("../components/mapCollection/map_01_3dtiles.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>
