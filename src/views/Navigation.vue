@@ -245,6 +245,12 @@ export default {
           text: "后处理-遮罩通道",
           path: "/post_03_shader_mask",
         },
+                {
+          id: 1,
+          img: "/images/nav/postprocessCollection/post_04_ghost.jpg",
+          text: "后处理-残影",
+          path: "/post_04_ghost",
+        },
       ],
     };
   },

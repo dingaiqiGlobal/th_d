@@ -227,6 +227,12 @@ const routes = [
     component: () =>
       import("../components/postprocessCollection/post_03_shader_mask.vue"),
   },
+  {
+    path: "/post_04_ghost",
+    name: "post_04_ghost",
+    component: () =>
+      import("../components/postprocessCollection/post_04_ghost.vue"),
+  },
 ];
 
 const router = new VueRouter({
