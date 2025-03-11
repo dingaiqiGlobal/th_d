@@ -132,7 +132,9 @@ export default {
           .copy(sphere.center)
           .multiplyScalar(-1);
       });
-      this.scene.add(this.tilesRenderer.group);
+      const group=this.tilesRenderer.group
+      //缩放旋转平移??
+      this.scene.add(group);
     },
     animate() {
       requestAnimationFrame(this.animate);
