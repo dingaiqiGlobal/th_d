@@ -133,6 +133,13 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/mapCollection/map_02_3dmap.jpg",
+          text: "map_02_3dmap",
+          path: "/map_02_3dmap",
+        },
+
+        {
+          id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
           text: "贴图-六面",
           path: "/texture_01_SixSides",
