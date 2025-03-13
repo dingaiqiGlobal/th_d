@@ -9,9 +9,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import Stats from "three/addons/libs/stats.module.js";
 import proj4 from "proj4";
-/**
- * 与geo_02_Geojson有点区别
- */
 
 export default {
   name: "Base",
@@ -23,6 +20,8 @@ export default {
       controls: null,
       lightGroup: null,
       stats: null,
+      //贴图
+      map: null,
     };
   },
   mounted() {
@@ -37,8 +36,7 @@ export default {
       this.scene.add(this.camera);
       //坐标辅助
       const axesHelper = this.createAxesHelper();
-      const gridHelper = new THREE.GridHelper(100, 20);
-      this.scene.add(axesHelper, gridHelper);
+      this.scene.add(axesHelper);
       //光源
       this.lightGroup = this.createLight();
       this.scene.add(this.lightGroup);
@@ -50,6 +48,8 @@ export default {
       this.createStats();
       //窗口变化
       this.changeWindow();
+      //贴图
+      this.createTexture();
       //3D
       this.create3d();
       //循环渲染
@@ -64,14 +64,14 @@ export default {
         75,
         this.$refs.box.clientWidth / this.$refs.box.clientHeight,
         0.1,
-        1000000
+        1000
       );
-      camera.position.set(50, 50, 50);
+      camera.position.set(0, 0, 500);
       camera.lookAt(0, 0, 0);
       return camera;
     },
     createAxesHelper() {
-      const axesHelper = new THREE.AxesHelper(1000);
+      const axesHelper = new THREE.AxesHelper(5);
       return axesHelper;
     },
     createLight() {
@@ -112,64 +112,70 @@ export default {
         this.camera.updateProjectionMatrix();
       });
     },
+    createTexture() {
+      this.map = new THREE.TextureLoader().load(
+        require("@/assets/texture/lmap.png")
+      );
+      this.map.wrapS = THREE.RepeatWrapping;
+      this.map.wrapT = THREE.RepeatWrapping;
+      this.map.needsUpdate = true;
+    },
     async create3d() {
       const group = new THREE.Group();
-      const geoJson = await fetch("data/json/guangdong.json").then((res) =>
+      const geoJson = await fetch("data/json/chinaBound.json").then((res) =>
         res.json()
       );
       geoJson.features.forEach((i) => {
-        if (i.geometry.type === "MultiPolygon")
+        if (i.geometry.type === "MultiPolygon") {
           i.geometry.coordinates.forEach((j) =>
-            j.forEach((z) => this.createShapeWithCoord(z, group, i))
+            j.forEach((z) => this.createShapeWithCoord(z, group))
           );
-        else if (i.geometry.type === "Polygon")
+        } else if (i.geometry.type === "Polygon") {
           i.geometry.coordinates.forEach((j) =>
-            this.createShapeWithCoord(j, group, i)
+            this.createShapeWithCoord(j, group)
           );
+        } else if (i.geometry.type === "LineString") {
+          i.geometry.coordinates.length > 1 &&
+            this.createShapeWithCoord(i.geometry.coordinates, group);
+        }
       });
       this.scene.add(group);
       this.translationOriginForGroup(group);
     },
-    createShapeWithCoord(coordinates, group, info = null) {
+    createShapeWithCoord(coordinates, group) {
+      if (coordinates.length < 1000) return; // 设置点数限制 如果点太少则不绘制
       const curvePoints = coordinates.map((item) => {
         let lonLat = proj4("EPSG:4326", "EPSG:3857", item);
         const [x, y] = lonLat;
         const slace = 10000;
-        return new THREE.Vector2(x / slace, y / slace);
+        return new THREE.Vector3(x / slace, y / slace, 0); //3维向量（因为曲线需要三维向量）
       });
-      const path = new THREE.Path(curvePoints);
-      const shape = new THREE.Shape();
-      shape.path = path;
-      shape.curves.push(path);
-      const geometry = new THREE.ExtrudeGeometry(shape, {
-        bevelEnabled: false,
-        bevelThickness: 0,
-        bevelSize: 0,
-        bevelOffset: 0,
-        depth: 2,
-        bevelEnabled: false,
-      });
-      const material = new THREE.MeshBasicMaterial({
-        color: 0xffffff * Math.random(),
-        transparent: true,
+      const curve = new THREE.CatmullRomCurve3(curvePoints); //平滑曲线
+      const geometry = new THREE.TubeGeometry( //管道
+        curve,
+        curvePoints.length - 1,
+        1,
+        40,
+        false
+      );
+      const material = new THREE.MeshPhongMaterial({
+        color: 0xffffff,
+        map: this.map, //贴图
+        transparent: true, //透明
       });
       const mesh = new THREE.Mesh(geometry, material);
-      this.translationOriginForMesh(mesh); // 重新定义中心
-      mesh.info = info;
+      this.translationOriginForMesh(mesh); //重新定义中心
       group.attach(mesh); //attach将object作为子级来添加到该对象中，同时保持该object的世界变换
     },
     translationOriginForGroup(group) {
-      // 计算模型的包围盒
-      const boundingBox = new THREE.Box3().setFromObject(group);
-      // 计算模型的中心点
-      boundingBox.getCenter(group.position);
+      const boundingBox = new THREE.Box3().setFromObject(group); // 计算模型的包围盒
+      boundingBox.getCenter(group.position); // 计算模型的中心点
       // 变换子模型位置
       group.traverse((c) => {
         c.isMesh && c.position.sub(group.position);
         c.initTranslate = c.position.clone();
       });
-      // 重置模型位置
-      group.position.set(0, 0, 0);
+      group.position.set(0, 0, 0); // 重置模型位置
     },
     translationOriginForMesh(mesh) {
       const boundingBox = new THREE.Box3().setFromObject(mesh);
@@ -177,9 +183,10 @@ export default {
       mesh.geometry.center();
     },
     animate() {
+      requestAnimationFrame(this.animate);
       this.controls.update();
       this.stats.update();
-      requestAnimationFrame(this.animate);
+      this.map.offset.x += 0.001;
       this.renderer.render(this.scene, this.camera);
     },
   },

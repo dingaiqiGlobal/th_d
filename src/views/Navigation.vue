@@ -143,7 +143,12 @@ export default {
           text: "map_03_3dmap2",
           path: "/map_03_3dmap2",
         },
-
+        {
+          id: 1,
+          img: "/images/nav/mapCollection/map_04_geoBound.jpg",
+          text: "map_04_geoBound",
+          path: "/map_04_geoBound",
+        },
         {
           id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
