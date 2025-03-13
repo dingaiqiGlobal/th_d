@@ -137,6 +137,12 @@ export default {
           text: "map_02_3dmap",
           path: "/map_02_3dmap",
         },
+        {
+          id: 1,
+          img: "/images/nav/mapCollection/map_03_3dmap2.jpg",
+          text: "map_03_3dmap2",
+          path: "/map_03_3dmap2",
+        },
 
         {
           id: 1,
