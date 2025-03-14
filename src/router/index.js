@@ -270,6 +270,12 @@ const routes = [
     component: () =>
       import("../components/postprocessCollection/post_06_saturation.vue"),
   },
+  {
+    path: "/physics_01_cannon",
+    name: "physics_01_cannon",
+    component: () =>
+      import("../components/physicsCollection/physics_01_cannon.vue"),
+  },
 ];
 
 const router = new VueRouter({

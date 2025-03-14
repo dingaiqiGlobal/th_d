@@ -293,6 +293,12 @@ export default {
           text: "后处理-饱和度",
           path: "/post_06_saturation",
         },
+        {
+          id: 1,
+          img: "/images/nav/physicsCollection/physics_01_cannon.jpg",
+          text: "物理-cannon",
+          path: "/physics_01_cannon",
+        },
       ],
     };
   },
