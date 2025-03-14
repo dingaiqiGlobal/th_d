@@ -129,6 +129,11 @@ const routes = [
     component: () => import("../components/mapCollection/map_04_geoBound.vue"),
   },
   {
+    path: "/map_05_heatmap",
+    name: "/map_05_heatmap",
+    component: () => import("../components/mapCollection/map_05_heatmap.vue"),
+  },
+  {
     path: "/texture_01_SixSides",
     name: "texture_01_SixSides",
     component: () =>

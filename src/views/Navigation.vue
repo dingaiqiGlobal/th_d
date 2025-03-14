@@ -151,6 +151,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/mapCollection/map_05_heatmap.jpg",
+          text: "map_05_heatmap",
+          path: "/map_05_heatmap",
+        },
+        {
+          id: 1,
           img: "/images/nav/textureCollection/texture_01_SixSides.jpg",
           text: "贴图-六面",
           path: "/texture_01_SixSides",
