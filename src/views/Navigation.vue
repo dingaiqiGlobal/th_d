@@ -299,6 +299,12 @@ export default {
           text: "物理-cannon",
           path: "/physics_01_cannon",
         },
+        {
+          id: 1,
+          img: "/images/nav/physicsCollection/physics_02_ammo.jpg",
+          text: "物理-ammo",
+          path: "/physics_02_ammo",
+        },
       ],
     };
   },

@@ -276,6 +276,12 @@ const routes = [
     component: () =>
       import("../components/physicsCollection/physics_01_cannon.vue"),
   },
+  {
+    path: "/physics_02_ammo",
+    name: "physics_02_ammo",
+    component: () =>
+      import("../components/physicsCollection/physics_02_ammo.vue"),
+  },
 ];
 
 const router = new VueRouter({
