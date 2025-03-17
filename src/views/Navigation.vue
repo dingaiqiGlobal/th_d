@@ -259,6 +259,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/animateCollection/animate_07_viewThreeClick.jpg",
+          text: "动画-第三人称点击",
+          path: "/animate_07_viewThreeClick",
+        },
+        {
+          id: 1,
           img: "/images/nav/shaderCollection/shader_01_ocean.jpg",
           text: "shader-海洋",
           path: "/shader_01_ocean",

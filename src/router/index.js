@@ -235,6 +235,12 @@ const routes = [
       import("../components/animateCollection/animate_06_clippingPlanes"),
   },
   {
+    path: "/animate_07_viewThreeClick",
+    name: "animate_07_viewThreeClick",
+    component: () =>
+      import("../components/animateCollection/animate_07_viewThreeClick"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
