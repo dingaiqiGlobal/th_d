@@ -229,6 +229,12 @@ const routes = [
     component: () => import("../components/animateCollection/animate_05_mesh"),
   },
   {
+    path: "/animate_06_clippingPlanes",
+    name: "animate_06_clippingPlanes",
+    component: () =>
+      import("../components/animateCollection/animate_06_clippingPlanes"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
