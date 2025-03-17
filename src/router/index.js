@@ -241,6 +241,12 @@ const routes = [
       import("../components/animateCollection/animate_07_viewThreeClick"),
   },
   {
+    path: "/animate_08_viewThreeKey",
+    name: "animate_08_viewThreeKey",
+    component: () =>
+      import("../components/animateCollection/animate_08_viewThreeKey"),
+  },
+  {
     path: "/shader_01_ocean",
     name: "shader_01_ocean",
     component: () =>
