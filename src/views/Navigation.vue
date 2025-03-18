@@ -269,7 +269,12 @@ export default {
           text: "动画-第三人称键盘",
           path: "/animate_08_viewThreeKey",
         },
-
+        {
+          id: 1,
+          img: "/images/nav/animateCollection/animate_09_viewFirst.jpg",
+          text: "动画-第一人称",
+          path: "/animate_09_viewFirst",
+        },
         {
           id: 1,
           img: "/images/nav/shaderCollection/shader_01_ocean.jpg",

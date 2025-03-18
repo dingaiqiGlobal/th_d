@@ -54,6 +54,8 @@ export default {
       this.changeWindow();
       //模型
       this.createModel();
+      //事件
+      this.addDocumentEvent();
       //循环渲染
       this.animate();
     },
@@ -124,7 +126,7 @@ export default {
         action.play(); //开始
       });
     },
-    updateModelAnimate() {
+    addDocumentEvent() {
       // 事件监听
       document.addEventListener(
         "keydown",
@@ -134,6 +136,8 @@ export default {
         "keyup",
         (e) => (this.keys[e.key.toLowerCase()] = false)
       );
+    },
+    updateModelAnimate() {
       if (!this.group) return;
       if (this.keys.a) this.group.rotation.y += this.turnSpeed;
       if (this.keys.d) this.group.rotation.y -= this.turnSpeed;
