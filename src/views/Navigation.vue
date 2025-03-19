@@ -283,6 +283,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/particlesCollection/particles_01_MeshSurfaceSampler.jpg",
+          text: "粒子-表面取样器",
+          path: "/particles_01_MeshSurfaceSampler",
+        },
+        {
+          id: 1,
           img: "/images/nav/postprocessCollection/post_01_outlinePass.jpg",
           text: "后处理-轮廓",
           path: "/post_01_outlinePass",

@@ -259,6 +259,14 @@ const routes = [
       import("../components/shaderCollection/shader_01_ocean.vue"),
   },
   {
+    path: "/particles_01_MeshSurfaceSampler",
+    name: "particles_01_MeshSurfaceSampler",
+    component: () =>
+      import(
+        "../components/particlesCollection/particles_01_MeshSurfaceSampler.vue"
+      ),
+  },
+  {
     path: "/post_01_outlinePass",
     name: "post_01_outlinePass",
     component: () =>
