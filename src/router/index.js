@@ -267,6 +267,12 @@ const routes = [
       ),
   },
   {
+    path: "/particles_02_snow",
+    name: "particles_02_snow",
+    component: () =>
+      import("../components/particlesCollection/particles_02_snow.vue"),
+  },
+  {
     path: "/post_01_outlinePass",
     name: "post_01_outlinePass",
     component: () =>
