@@ -273,6 +273,12 @@ const routes = [
       import("../components/particlesCollection/particles_02_snow.vue"),
   },
   {
+    path: "/particles_03_bubble",
+    name: "particles_03_bubble",
+    component: () =>
+      import("../components/particlesCollection/particles_03_bubble.vue"),
+  },
+  {
     path: "/post_01_outlinePass",
     name: "post_01_outlinePass",
     component: () =>
