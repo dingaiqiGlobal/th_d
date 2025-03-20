@@ -285,6 +285,12 @@ const routes = [
       import("../components/particlesCollection/particles_04_snow2.vue"),
   },
   {
+    path: "/particles_05_wave",
+    name: "particles_05_wave",
+    component: () =>
+      import("../components/particlesCollection/particles_05_wave.vue"),
+  },
+  {
     path: "/post_01_outlinePass",
     name: "post_01_outlinePass",
     component: () =>

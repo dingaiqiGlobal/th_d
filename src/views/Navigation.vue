@@ -299,11 +299,17 @@ export default {
           text: "粒子-气泡",
           path: "/particles_03_bubble",
         },
-                {
+        {
           id: 1,
           img: "/images/nav/particlesCollection/particles_04_snow2.jpg",
           text: "粒子-雪2",
           path: "/particles_04_snow2",
+        },
+        {
+          id: 1,
+          img: "/images/nav/particlesCollection/particles_05_wave.jpg",
+          text: "粒子-波浪",
+          path: "/particles_05_wave",
         },
         {
           id: 1,
