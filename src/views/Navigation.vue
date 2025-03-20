@@ -313,6 +313,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/particlesCollection/particles_06_fireworks.jpg",
+          text: "粒子-烟花",
+          path: "/particles_06_fireworks",
+        },
+        {
+          id: 1,
           img: "/images/nav/postprocessCollection/post_01_outlinePass.jpg",
           text: "后处理-轮廓",
           path: "/post_01_outlinePass",
