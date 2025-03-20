@@ -49,8 +49,6 @@ export default {
       this.createStats();
       //窗口变化
       this.changeWindow();
-      //加载贴图
-      this.createTextures();
       //粒子效果
       setInterval(this.radomCreateFireWork, 600);
       //循环渲染
@@ -113,9 +111,11 @@ export default {
         this.camera.updateProjectionMatrix();
       });
     },
-    createTextures() {
+    //随机烟花
+    radomCreateFireWork() {
+      //贴图
       const textureLoader = new THREE.TextureLoader();
-      this.textures = [
+      const textures = [
         textureLoader.load(require("@/assets/particles/fireworks/1.png")),
         textureLoader.load(require("@/assets/particles/fireworks/3.png")),
         textureLoader.load(require("@/assets/particles/fireworks/4.png")),
@@ -125,6 +125,19 @@ export default {
         textureLoader.load(require("@/assets/particles/fireworks/8.png")),
         textureLoader.load(require("@/assets/particles/fireworks/10.png")),
       ];
+      //参数
+      const count = Math.round(400 + Math.random() * 1000);
+      const position = new THREE.Vector3(
+        (Math.random() - 0.5) * 2,
+        Math.random(),
+        (Math.random() - 0.5) * 2
+      );
+      const size = 0.1 + Math.random() * 0.1;
+      const texture = textures[Math.floor(Math.random() * textures.length)];
+      const radius = 1 + Math.random();
+      const color = new THREE.Color();
+      color.setHSL(Math.random(), 1, 0.7);
+      this.createFireWork(count, position, size, texture, radius, color);
     },
     /**
      *
@@ -292,22 +305,6 @@ export default {
         ease: "linear",
         onComplete: destory,
       });
-    },
-    //随机烟花
-    radomCreateFireWork() {
-      const count = Math.round(400 + Math.random() * 1000);
-      const position = new THREE.Vector3(
-        (Math.random() - 0.5) * 2,
-        Math.random(),
-        (Math.random() - 0.5) * 2
-      );
-      const size = 0.1 + Math.random() * 0.1;
-      const texture =
-        this.textures[Math.floor(Math.random() * this.textures.length)];
-      const radius = 1 + Math.random();
-      const color = new THREE.Color();
-      color.setHSL(Math.random(), 1, 0.7);
-      this.createFireWork(count, position, size, texture, radius, color);
     },
     animate() {
       this.controls.update();
