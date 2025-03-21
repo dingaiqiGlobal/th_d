@@ -283,6 +283,12 @@ export default {
         },
         {
           id: 1,
+          img: "/images/nav/shaderCollection/shader_02_cityLight.jpg",
+          text: "shader-城市光效",
+          path: "/shader_02_cityLight",
+        },
+        {
+          id: 1,
           img: "/images/nav/particlesCollection/particles_01_MeshSurfaceSampler.jpg",
           text: "粒子-表面取样器",
           path: "/particles_01_MeshSurfaceSampler",

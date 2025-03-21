@@ -259,6 +259,12 @@ const routes = [
       import("../components/shaderCollection/shader_01_ocean.vue"),
   },
   {
+    path: "/shader_02_cityLight",
+    name: "shader_02_cityLight",
+    component: () =>
+      import("../components/shaderCollection/shader_02_cityLight.vue"),
+  },
+  {
     path: "/particles_01_MeshSurfaceSampler",
     name: "particles_01_MeshSurfaceSampler",
     component: () =>
